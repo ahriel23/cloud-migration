@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environment {
-        AWS_ACCESS_KEY_ID = credentials('AKIAWT5FJ46GJXHCD6XL')
-        AWS_SECRET_ACCESS_KEY = credentials('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')
+        AWS_ACCESS_KEY_ID = credentials('')
+        AWS_SECRET_ACCESS_KEY = credentials('')
         AWS_REGION = 'us-east-1' 
         S3_BUCKET_NAME = 'cloud-migr-455076341644'
         DYNAMODB_TABLE_NAME = 'my-db'
