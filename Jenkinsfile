@@ -1,23 +1,14 @@
 pipeline {
     agent any
-
-    environment {
-        AWS_ACCESS_KEY_ID = credentials('')
-        AWS_SECRET_ACCESS_KEY = credentials('')
-        AWS_REGION = 'us-east-1' 
-        S3_BUCKET_NAME = 'cloud-migr-455076341644'
-        DYNAMODB_TABLE_NAME = 'my-db'
-    }
-
+    
     stages {
         stage('Checkout') {
             steps {
-                // https://github.com/ahriel23/cloud-migration/new/main
                 checkout scm
             }
         }
 
-          stage('Code Build') {
+          stage('terraform init') {
             steps {
                 sh 'mvn clean package'
             }
