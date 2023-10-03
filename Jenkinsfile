@@ -10,33 +10,22 @@ pipeline {
 
           stage('terraform init') {
             steps {
-                sh 'mvn clean package'
+                sh 'terraform init -reconfigure'
             }
         }
-        stage('Test') {
+        stage('plan') {
             steps {
-                sh 'mvn test'
+                sh 'terraform plan'
             }
         }
-
-        stage('Deploy to S3') {
+        stage( 'action') {
             steps {
-                script {
-                    // https://s3.console.aws.amazon.com/s3/home?region=us-east-1
-                    sh "aws s3 cp target/*.jar s3://${cloud-migr-455076341644}/"
-                }
-            }
-        }
-
-        stage('Deploy to DynamoDB') {
-            steps {
-                script {
-                    // https://us-east-1.console.aws.amazon.com/dynamodbv2/home?region=us-east-1#dashboard
-                    sh "aws dynamodb put-item --table-name ${my-db} --item '{\"key\": {\"S\": \"valeur\"}}' --region ${us-east-1}"
-                }
+                echo"terraform action is --> ${action}"
+                sh ('terraform ${action} --auto-approve')
             }
         }
     }
+}
 
     
 
