@@ -15,13 +15,13 @@ pipeline {
         }
         stage('plan') {
             steps {
-                sh 'terraform plan -target=aws_s3_bucket.example'
+                sh 'terraform plan'
             }
         }
         stage( 'action') {
             steps {
                 echo"terraform action is --> ${action}"
-                sh ('terraform apply -target=aws_s3_bucket.example --auto-approve')
+                sh ('terraform apply  --auto-approve')
             }
         }
     }
