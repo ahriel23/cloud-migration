@@ -16,7 +16,7 @@ terraform {
    #  dynamodb_table = "my-db"
    #  encrypt = true
   # }
-# }
+ }
 
 provider "aws" {
   region = "us-east-1"
