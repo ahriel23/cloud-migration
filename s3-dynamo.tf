@@ -14,11 +14,11 @@ resource "aws_s3_bucket_versioning" "versioning_example" {
 # Create a DynamoDB table
 resource "aws_dynamodb_table" "table" {
   name           = "my-db" 
-  hash_key       = "LockID"
+#  hash_key       = "LockID"
   billing_mode = "PAY_PER_REQUEST"              
-  attribute {
-    name = "LockID"
-    type = "S" 
+#  attribute {
+#    name = "LockID"
+#    type = "S" 
   }
 }
   
