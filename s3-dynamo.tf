@@ -16,9 +16,9 @@ resource "aws_dynamodb_table" "table" {
   name           = "my-db" 
 #  hash_key       = "LockID"
   billing_mode = "PAY_PER_REQUEST"              
-#  attribute {
-#    name = "LockID"
-#    type = "S" 
+  attribute {
+    name = "LockID"
+    type = "S" 
   }
 }
   
