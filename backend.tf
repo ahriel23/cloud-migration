@@ -14,7 +14,7 @@ terraform {
      key    = "states/terraform.tfstate"
      region = "us-east-1"
      dynamodb_table = "my-db"
-     encrypt = true
+     encrypt = false
    }
  }
 
